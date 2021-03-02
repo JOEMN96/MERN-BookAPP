@@ -5,6 +5,9 @@ import cors from "cors";
 import chalk from "chalk";
 import * as dotenv from "dotenv";
 
+// File imports
+import postRoutes from "./routes/book.js";
+
 const app = express();
 const PORT = process.env.PORT || 4000;
 dotenv.config();
@@ -25,3 +28,5 @@ mongoose
   })
   .catch((err) => console.log(err));
 mongoose.set("useFindAndModify", false);
+
+app.use(postRoutes);
