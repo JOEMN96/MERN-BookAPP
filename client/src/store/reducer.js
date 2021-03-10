@@ -6,8 +6,8 @@ const reducer = (state = {}, action) => {
         ...state,
         books: action.payload,
       };
-    case "CREATE":
-      return state;
+    case "NEWPOST":
+      return { ...state, books: action.payload };
     default:
       return state;
   }

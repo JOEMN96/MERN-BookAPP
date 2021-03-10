@@ -6,8 +6,6 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { fetchPostASync } from "../store/actions/Books";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,11 +24,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
   const classes = useStyles();
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    dispatch(fetchPostASync());
-  }, [dispatch]);
 
   return (
     <div className={classes.root}>

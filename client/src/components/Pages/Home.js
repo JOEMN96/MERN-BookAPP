@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "../Card";
 import Grid from "@material-ui/core/Grid";
 import { useSelector } from "react-redux";
+import { fetchPostASync } from "../../store/actions/Books";
+import { useDispatch } from "react-redux";
 
 function Home() {
   const state = useSelector((state) => state.books);
   console.log(state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPostASync());
+  }, [dispatch]);
 
   if (!state) {
     return <h1>Loading</h1>;
